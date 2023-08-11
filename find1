@@ -1,0 +1,13 @@
+import subprocess
+
+for i in range(1, 51):
+    argument = str(i)
+    output_bytes = subprocess.check_output(["InputApp.exe", argument])
+    output = output_bytes.decode('utf-8').strip()  # Remove any leading/trailing whitespace
+
+    #print('Output arg : {0} is {1}'.format(argument,output))
+    if output != "invalid":
+        print("found flag ", argument)
+        break  # Break the loop if output is 44
+    #else:
+    #    print("Output argument:", argument)
